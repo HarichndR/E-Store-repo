@@ -1,0 +1,41 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Auth service of project E-Store",
+  "homepage": "https://github.com/HarichndR/E-Store-repo#readme",
+  "bugs": {
+    "url": "https://github.com/HarichndR/E-Store-repo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarichndR/E-Store-repo.git"
+  },
+  "license": "ISC",
+  "author": "Harish Rajput",
+  "type": "commonjs",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "test"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.2.0",
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "module-alias": "^2.2.3",
+    "pg": "^8.16.3",
+    "psql": "^0.0.1"
+  },
+  "_moduleAliases": {
+    "@utils": "src/utils",
+    "@config": "src/config"
+  },
+  "devDependencies": {
+    "prisma": "^7.2.0"
+  }
+}

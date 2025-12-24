@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  
+}
+
+enum Role {
+  USER
+  ADMIN
+  SHOP_KEEPER
+}
+
+model User {
+  _id        String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  salt       String
+
+  email_verification_status   Boolean @default(false)
+  mobile_number               String? @unique
+  mobile_number_verification_status Boolean @default(false)
+  whatsapp_number_verification Boolean @default(false)
+
+  role        Role     @default(USER)
+  profile_image String?
+
+  addresses   Address[]
+  permissions Permissions[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+}
+
+model Address {
+  _id       String @id @default(uuid())
+  userId    String
+
+  name      String?
+  street    String?
+  landmark  String
+  pincode   String?
+
+  user      User   @relation(fields: [userId], references: [_id], onDelete: Cascade)
+
+  location  Unsupported("geography(Point, 4326)")
+}
+
+model Permissions {
+  _id     String @id @default(uuid())
+  userId  String
+
+  user    User @relation(fields: [userId], references: [_id], onDelete: Cascade)
+}

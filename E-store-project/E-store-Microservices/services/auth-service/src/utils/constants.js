@@ -1,0 +1,34 @@
+const ROLES = {
+    ADMIN: "ADMIN",
+    USER: "USER",
+    SHOP_KEEPER: "SHOP_KEEPER"
+};
+
+const USER_STATUS = {
+    ACTIVE: "ACTIVE",
+    INACTIVE: "INACTIVE",
+    BLOCKED: "BLOCKED"
+};
+
+const HTTP_STATUS = {
+    OK: 200,
+    CREATED: 201,
+    BAD_REQUEST: 400,
+    UNPROCESSABLE_ENTITY: 422,
+    UNAUTHORIZED: 401,
+    FORBIDDEN: 403,
+    NOT_FOUND: 404,
+    SERVER_ERROR: 500
+};
+
+const TOKEN_TYPES = {
+    ACCESS: "ACCESS_TOKEN",
+    REFRESH: "REFRESH_TOKEN"
+};
+
+module.exports = {
+    ROLES,
+    USER_STATUS,
+    HTTP_STATUS,
+    TOKEN_TYPES
+};
